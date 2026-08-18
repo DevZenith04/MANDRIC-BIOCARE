@@ -196,20 +196,31 @@ function getBenefitPoints(cat, form) {
 function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText) {
   var benefitPoints = getBenefitPoints(cat, form);
   var icoHtml = img
-    ? '<img src="' + img + '" alt="' + product + '" loading="lazy" decoding="async" style="width:200px;height:200px;max-width:200px;max-height:200px;object-fit:cover;display:block;">'
+    ? '<img src="' + img + '" alt="' + product + '" loading="lazy" decoding="async" fetchpriority="low">'
     : (ico || '&#128138;');
 
   return ''
+    + '<div class="modal-product-eyebrow"><span>PRODUCT SPOTLIGHT</span><i>•</i><span>ENQUIRE WITH CONFIDENCE</span></div>'
     + '<div class="modal-prod-hero">'
-    + '<div class="modal-prod-ico' + (img ? ' modal-prod-ico-photo' : '') + '" style="' + (img ? 'width:200px;height:200px;min-width:200px;min-height:200px;flex:0 0 200px;aspect-ratio:1/1;padding:0;' : '') + '">' + icoHtml + '</div>'
+    + '<div class="modal-prod-visual">'
+    + '<div class="modal-prod-visual-glow"></div>'
+    + '<div class="modal-prod-ico' + (img ? ' modal-prod-ico-photo' : '') + '">' + icoHtml + '</div>'
+    + '<span class="modal-prod-visual-label">Mandric Biocare</span>'
+    + '</div>'
     + '<div class="modal-prod-info">'
+    + '<div class="modal-prod-overline">' + (cat || 'Healthcare product') + '</div>'
     + '<div class="modal-prod-name">' + product + '</div>'
     + (comp ? '<div class="modal-prod-comp">' + comp + '</div>' : '')
     + '<div class="modal-prod-meta">'
     + (cat ? '<span class="prod-tag">' + cat + '</span>' : '')
     + (form ? '<span class="prod-tag green">' + form + '</span>' : '')
     + '</div>'
+    + '<div class="modal-prod-prompt">Tell us what you need and our team will help you with the next step.</div>'
     + '</div>'
+    + '</div>'
+    + '<div class="modal-prod-detail-grid">'
+    + '<div class="modal-prod-detail-card"><span class="modal-detail-icon">✓</span><div><small>Portfolio standard</small><strong>Quality-led selection</strong></div></div>'
+    + '<div class="modal-prod-detail-card"><span class="modal-detail-icon">↗</span><div><small>Availability</small><strong>Enquire for supply</strong></div></div>'
     + '</div>'
     + '<div class="modal-prod-benefits">'
     + benefitPoints.map(function (point) {
@@ -217,11 +228,11 @@ function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText)
     }).join('')
     + '</div>'
     + '<div class="modal-prod-desc">'
-    + '<div class="modal-prod-desc-label">&#128196; About this product</div>'
+    + '<div class="modal-prod-desc-label"><span>Product overview</span><i>01</i></div>'
     + '<div class="modal-prod-desc-text">' + desc + '</div>'
     + '</div>'
     + '<div class="modal-prod-wa">'
-    + '<a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a>'
+    + '<a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry <span>↗</span></a>'
     + '</div>';
 }
 
@@ -229,6 +240,7 @@ function openModal(product, comp, cat, form, ico, img) {
   var isProduct = product && product !== 'General Enquiry' && product !== 'Partnership Enquiry';
   var overlay = document.getElementById('enquiryModal');
   var badge = document.getElementById('modalBadge');
+  overlay.classList.toggle('product-modal', !!isProduct);
 
   // Reset animation
   overlay.classList.remove('open');
@@ -519,28 +531,43 @@ var products = {
 
 var activeCat = { pharma: 'All', paediatric: 'All', surgical: 'All', ortho: 'All' };
 var activeSearch = { pharma: '', paediatric: '', surgical: '', ortho: '' };
+var activeSort = { pharma: 'default', paediatric: 'default', surgical: 'default', ortho: 'default' };
 var _lastFiltered = [];
+
+function renderProductControls(seg) {
+  var wrap = document.getElementById(seg + '-filters');
+  if (!wrap || wrap.dataset.ready === 'true') return;
+  var cats = ['All'].concat((products[seg] || []).map(function (p) { return p.cat; }).filter(function (v, i, a) { return a.indexOf(v) === i; }));
+  wrap.innerHTML = cats.map(function (cat) {
+    var safe = cat.replace(/'/g, '&#39;');
+    return '<button type="button" class="filter-tag' + (cat === 'All' ? ' active' : '') + '" onclick="setCat(\'' + seg + '\', \'' + safe + '\', this)">' + cat + '</button>';
+  }).join('');
+  wrap.dataset.ready = 'true';
+}
 
 function renderProducts(seg) {
   var grid = document.getElementById(seg + '-grid');
   if (!grid) return;
+  renderProductControls(seg);
   var empty = document.getElementById(seg + '-empty');
   var count = document.getElementById(seg + '-count');
   var cat = activeCat[seg];
-  var term = activeSearch[seg].toLowerCase();
+  var term = activeSearch[seg].trim().toLowerCase();
   var filtered = (products[seg] || []).filter(function (p) {
-    var mc = cat === 'All' || p.cat === cat;
-    var mt = !term || p.name.toLowerCase().includes(term) || p.comp.toLowerCase().includes(term) || p.cat.toLowerCase().includes(term) || p.form.toLowerCase().includes(term);
-    return mc && mt;
+    var haystack = [p.name, p.comp, p.cat, p.form].join(' ').toLowerCase();
+    return (cat === 'All' || p.cat === cat) && (!term || haystack.includes(term));
   });
+  var sort = activeSort[seg];
+  if (sort === 'name-asc') filtered.sort(function (a, b) { return a.name.localeCompare(b.name); });
+  if (sort === 'name-desc') filtered.sort(function (a, b) { return b.name.localeCompare(a.name); });
+  if (sort === 'category') filtered.sort(function (a, b) { return a.cat.localeCompare(b.cat) || a.name.localeCompare(b.name); });
   _lastFiltered = filtered;
   count.textContent = 'Showing ' + filtered.length + ' product' + (filtered.length !== 1 ? 's' : '');
   if (!filtered.length) { grid.innerHTML = ''; empty.classList.remove('hidden'); return; }
   empty.classList.add('hidden');
   grid.innerHTML = filtered.map(function (p, i) {
-    // Card top: real photo if img set, else emoji fallback
     var topHtml = p.img
-      ? '<div class="prod-card-top prod-card-photo"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"></div>'
+      ? '<div class="prod-card-top prod-card-photo"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy" decoding="async" fetchpriority="low"></div>'
       : '<div class="prod-card-top">' + p.ico + '</div>';
     return '<div class="prod-card" onclick="openProductModal(' + i + ')" style="cursor:pointer;">'
       + topHtml
@@ -560,15 +587,20 @@ function openProductModal(i) {
 }
 
 function filterProducts(seg, val) {
-  activeSearch[seg] = val;
+  activeSearch[seg] = val || '';
   renderProducts(seg);
 }
 
 function setCat(seg, cat, el) {
   activeCat[seg] = cat;
-  var tags = el.closest('.filter-group').querySelectorAll('.filter-tag');
-  tags.forEach(function (t) { t.classList.remove('active'); });
-  el.classList.add('active');
+  var scope = el && el.closest('.product-filter-chips');
+  if (scope) scope.querySelectorAll('.filter-tag').forEach(function (t) { t.classList.remove('active'); });
+  if (el) el.classList.add('active');
+  renderProducts(seg);
+}
+
+function sortProducts(seg, value) {
+  activeSort[seg] = value || 'default';
   renderProducts(seg);
 }
 
