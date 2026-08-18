@@ -32,13 +32,16 @@
 </a>
 <!-- MODAL -->
 <div aria-modal="true" class="modal-overlay" id="enquiryModal" role="dialog">
-<div class="modal">
-<button aria-label="Close" class="modal-close" onclick="closeModal()">✕</button>
-<div class="modal-header">
-<h2>Product Enquiry</h2>
-<p class="modal-sub">Fill in your details and our team will contact you within 24 hours.</p>
-</div>
-<div class="modal-body">
+<div class="modal modal-v4">
+<button aria-label="Close product enquiry" class="modal-close" onclick="closeModal()">✕</button>
+<div class="modal-split">
+<section aria-label="Product preview" class="modal-showcase">
+<div class="modal-showcase-top"><span>MANDRIC BIOCARE</span><span>01 / PRODUCT</span></div>
+<div class="modal-showcase-art"><div class="showcase-grid"></div><div class="modal-showcase-image" id="modalShowcaseImage"></div><div class="showcase-orbit orbit-left"></div><div class="showcase-orbit orbit-right"></div></div>
+<div class="modal-showcase-bottom"><span class="showcase-kicker">QUALITY HEALTHCARE</span><h3 id="modalShowcaseTitle">Product enquiry</h3><p id="modalShowcaseCategory">Start with a product and let’s find the right next step together.</p><div class="showcase-signature"><span>Mandric Biocare Pvt. Ltd.</span><span>Est. 2017</span></div></div>
+</section>
+<section class="modal-panel">
+<div class="modal-panel-head"><span class="modal-panel-kicker">PRODUCT ENQUIRY</span><h2>Let’s talk about better care.</h2><p>Share a few details and our team will help you with availability, supply, and the next step.</p></div>
 <div id="modalBadge"></div>
 <div id="enquiryForm">
 <div class="form-row">
@@ -61,6 +64,7 @@
 <h3>Enquiry Sent Successfully!</h3>
 <p>Thank you! Our team will contact you within 24 hours.</p>
 </div>
+</section>
 </div>
 </div>
 </div>
