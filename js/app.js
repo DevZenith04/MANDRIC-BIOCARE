@@ -211,8 +211,11 @@ function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText)
     + '<div class="modal-overview"><div><span>PRODUCT OVERVIEW</span><b>01</b></div><p>' + desc + '</p></div>'
     + '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; WhatsApp the team <span>↗</span></a></div>';
 }
+var modalLastFocus = null;
+
 function openModal(product, comp, cat, form, ico, img) {
   var isProduct = product && product !== 'General Enquiry' && product !== 'Partnership Enquiry';
+  modalLastFocus = document.activeElement;
   var overlay = document.getElementById('enquiryModal');
   var badge = document.getElementById('modalBadge');
   overlay.classList.toggle('product-modal', !!isProduct);
@@ -246,11 +249,19 @@ function openModal(product, comp, cat, form, ico, img) {
 
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
+  window.setTimeout(function () {
+    var closeButton = overlay.querySelector('.modal-close');
+    if (closeButton) closeButton.focus();
+  }, 60);
 }
 
 function closeModal() {
-  document.getElementById('enquiryModal').classList.remove('open');
+  var overlay = document.getElementById('enquiryModal');
+  overlay.classList.remove('open');
   document.body.style.overflow = '';
+  if (modalLastFocus && typeof modalLastFocus.focus === 'function') {
+    window.setTimeout(function () { modalLastFocus.focus(); }, 40);
+  }
 }
 
 function submitEnquiry() {
