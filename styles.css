@@ -3756,3 +3756,124 @@ nav {
 
 @keyframes innerPageIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes cardRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+
+/* === PAGE-SPECIFIC DESIGN DIRECTIONS === */
+.page-about .premium-page-hero {
+  background: linear-gradient(120deg, #082b63 0%, #1565c0 58%, #5e9ee8 100%);
+}
+
+.page-about .premium-page-hero::after {
+  width: 440px;
+  height: 440px;
+  left: auto;
+  right: -100px;
+  bottom: -300px;
+  border-color: rgba(255,255,255,.2);
+}
+
+.page-hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.page-hero-facts span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 11px;
+  background: rgba(255,255,255,.1);
+  color: rgba(255,255,255,.76);
+  backdrop-filter: blur(8px);
+}
+
+.page-hero-facts strong { color: #fff; font-size: 17px; }
+.page-hero-facts small { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.page-about .premium-content-section:first-of-type { background: radial-gradient(circle at 90% 20%, rgba(144,202,249,.24), transparent 24%), #fff; }
+.page-about .premium-content-section.alt { background: linear-gradient(135deg, #edf6ff, #fff); }
+.page-about .timeline-item { transition: transform .25s var(--ease-out); }
+.page-about .timeline-item:hover { transform: translateX(7px); }
+
+.page-contact .premium-page-hero {
+  background: linear-gradient(120deg, #082b63 0%, #0d47a1 52%, #d84b18 150%);
+}
+
+.page-contact .premium-page-hero::before {
+  right: -40px;
+  top: -190px;
+  background: radial-gradient(circle, rgba(232,69,10,.4), transparent 65%);
+}
+
+.page-hero-assurance {
+  max-width: 500px;
+  margin-top: 20px;
+  padding-left: 13px;
+  border-left: 3px solid var(--orange);
+  color: rgba(255,255,255,.78);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.page-contact .premium-contact-section {
+  background: radial-gradient(circle at 12% 12%, rgba(21,101,192,.1), transparent 22%), linear-gradient(135deg, #f3f8ff, #fff 55%, #fff5f0);
+}
+
+.page-contact .contact-info::before,
+.page-contact .contact-form::before {
+  content: '';
+  display: block;
+  width: 42px;
+  height: 4px;
+  margin-bottom: 17px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+}
+
+.page-contact .contact-form .btn { box-shadow: 0 14px 24px rgba(232,69,10,.18); }
+
+.page-pharma .premium-page-hero { background: linear-gradient(120deg, #061f50, #0d47a1 58%, #2678d1); }
+.page-surgical .premium-page-hero { background: linear-gradient(120deg, #071c48, #124a8e 58%, #138a96); }
+.page-paediatric .premium-page-hero { background: linear-gradient(120deg, #092557, #1565c0 52%, #8b70cf); }
+.page-ortho .premium-page-hero { background: linear-gradient(120deg, #081e4c, #0d47a1 52%, #0d8a83); }
+
+.page-pharma .premium-page-hero::before { background: radial-gradient(circle, rgba(113,184,255,.35), transparent 65%); }
+.page-surgical .premium-page-hero::before { background: radial-gradient(circle, rgba(62,214,212,.3), transparent 65%); }
+.page-paediatric .premium-page-hero::before { background: radial-gradient(circle, rgba(228,191,255,.35), transparent 65%); }
+.page-ortho .premium-page-hero::before { background: radial-gradient(circle, rgba(63,224,180,.28), transparent 65%); }
+
+.page-pharma .premium-product-layout { background: linear-gradient(180deg, #f1f7ff, #fff); }
+.page-surgical .premium-product-layout { background: linear-gradient(180deg, #f0fbfc, #fff); }
+.page-paediatric .premium-product-layout { background: linear-gradient(180deg, #f8f5ff, #fff); }
+.page-ortho .premium-product-layout { background: linear-gradient(180deg, #f0fbfa, #fff); }
+
+.page-pharma .premium-filter-card { border-top: 4px solid #2678d1; }
+.page-surgical .premium-filter-card { border-top: 4px solid #138a96; }
+.page-paediatric .premium-filter-card { border-top: 4px solid #8b70cf; }
+.page-ortho .premium-filter-card { border-top: 4px solid #0d8a83; }
+
+.page-pharma .premium-product-grid .product-card:hover,
+.page-pharma .premium-product-grid > div:hover { border-color: rgba(38,120,209,.42); }
+.page-surgical .premium-product-grid .product-card:hover,
+.page-surgical .premium-product-grid > div:hover { border-color: rgba(19,138,150,.42); }
+.page-paediatric .premium-product-grid .product-card:hover,
+.page-paediatric .premium-product-grid > div:hover { border-color: rgba(139,112,207,.42); }
+.page-ortho .premium-product-grid .product-card:hover,
+.page-ortho .premium-product-grid > div:hover { border-color: rgba(13,138,131,.42); }
+
+.page-home .presence-grid,
+.page-home .segments,
+.page-home .about,
+.page-home .specialities,
+.page-home .strengths,
+.page-home .blog { scroll-margin-top: 100px; }
+
+@media (max-width: 640px) {
+  .page-hero-facts { gap: 7px; }
+  .page-hero-facts span { padding: 8px 9px; }
+  .page-hero-facts strong { font-size: 15px; }
+  .page-hero-facts small { font-size: 8px; }
+}
