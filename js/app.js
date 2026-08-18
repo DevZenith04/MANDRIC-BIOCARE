@@ -646,3 +646,14 @@ function setCat(seg, cat, el) {
   window.sendToSheets = sendToSheets;
 
 })();
+
+
+// Homepage featured product finder
+function filterHomeProducts(focus, button) {
+  document.querySelectorAll('.finder-tab').forEach(function (tab) { tab.classList.remove('active'); });
+  if (button) button.classList.add('active');
+  document.querySelectorAll('.finder-card').forEach(function (card) {
+    var match = focus === 'all' || card.dataset.focusGroup === focus;
+    card.classList.toggle('is-hidden', !match);
+  });
+}
