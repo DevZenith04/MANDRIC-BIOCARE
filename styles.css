@@ -3877,3 +3877,166 @@ nav {
   .page-hero-facts strong { font-size: 15px; }
   .page-hero-facts small { font-size: 8px; }
 }
+
+
+/* === MODERN BRAND TYPOGRAPHY & PRODUCT VISIBILITY SYSTEM === */
+:root {
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --ink: #10213f;
+  --ink-soft: #52627a;
+  --surface: #f6f9fd;
+}
+
+body,
+.premium-page { font-family: var(--font-body); color: var(--ink); }
+
+h1, h2, h3, h4, h5, h6,
+.slider-title, .sec-title, .prod-name, .seg-title,
+.nav-links a, .nav-enquire, .btn { font-family: var(--font-display); }
+
+h1, h2, h3, h4, h5, h6 { letter-spacing: -.045em; }
+
+.topbar, .nav-links, .footer-col, .footer-brand, .filter-sidebar,
+.contact-info, .contact-form, .about-features, .timeline { font-family: var(--font-body); }
+
+.nav-links a { font-size: 12px; font-weight: 600; letter-spacing: -.01em; }
+.nav-enquire, .btn { font-weight: 600; letter-spacing: -.02em; }
+
+.premium-page .product-page-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.page-hero-kicker,
+.sec-label,
+.badge,
+.prod-tag,
+.page-hero-facts small {
+  font-family: var(--font-body);
+}
+
+.premium-product-layout {
+  min-height: 600px;
+}
+
+.premium-product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.premium-product-grid .prod-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(21,101,192,.1);
+  border-radius: 22px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 14px 34px rgba(13,71,161,.08);
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out), border-color .25s ease;
+}
+
+.premium-product-grid .prod-card:hover {
+  border-color: rgba(232,69,10,.32);
+  box-shadow: 0 24px 54px rgba(13,71,161,.16);
+  transform: translateY(-8px);
+}
+
+.premium-product-grid .prod-card-top {
+  min-height: 215px;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: linear-gradient(145deg, #eef5ff, #fff9f5);
+}
+
+.premium-product-grid .prod-card-top img {
+  width: min(100%, 190px);
+  height: 190px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform .35s var(--ease-out);
+}
+
+.premium-product-grid .prod-card:hover .prod-card-top img { transform: scale(1.07) rotate(1deg); }
+
+.premium-product-grid .prod-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 20px 18px;
+}
+
+.premium-product-grid .prod-name {
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.premium-product-grid .prod-comp {
+  display: -webkit-box;
+  min-height: 55px;
+  margin-top: 9px;
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.premium-product-grid .prod-tags { margin-top: 14px; }
+.premium-product-grid .prod-enquire {
+  width: 100%;
+  margin-top: auto;
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s var(--ease-out), box-shadow .2s ease, background .2s ease;
+}
+
+.premium-product-grid .prod-enquire:hover {
+  background: linear-gradient(135deg, var(--orange), var(--orange2));
+  box-shadow: 0 10px 22px rgba(232,69,10,.22);
+  transform: translateY(-2px);
+}
+
+.premium-page .product-page-hero p,
+.page-hero-support,
+.hero-sub,
+.slider-sub { font-family: var(--font-body); }
+
+.page-home .segments .sec-title,
+.page-home .about .sec-title,
+.page-home .strengths .sec-title,
+.page-home .blog .sec-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.page-home .seg-title,
+.page-home .blog-card h3 { font-family: var(--font-display); }
+
+.footer-brand p,
+.footer-col a,
+.footer-bottom,
+.contact-info p,
+.contact-form label { font-family: var(--font-body); }
+
+@media (max-width: 1000px) {
+  .premium-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .premium-product-grid { grid-template-columns: 1fr; }
+  .premium-product-grid .prod-card-top { min-height: 190px; }
+  .premium-product-grid .prod-card-top img { height: 165px; }
+  .premium-product-grid .prod-comp { min-height: auto; }
+}
