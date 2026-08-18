@@ -4329,3 +4329,16 @@ body.visual-language-v3::selection { background: var(--orange); color: #fff; }
   .visual-language-v3 .product-page-hero h1 { font-size: 2.8rem; }
   .visual-language-v3 .premium-content-section .sec-title { font-size: 3rem; }
 }
+
+
+/* === PRODUCT DISCOVERY CONTROLS === */
+.product-filter-heading { margin-top: 23px; margin-bottom: 10px; color: var(--ink); font-family: var(--font-display); font-size: 16px; }
+.product-filter-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.product-filter-chips .filter-tag { padding: 7px 10px; border: 1px solid rgba(21,101,192,.14); border-radius: 999px; background: #fff; color: var(--ink-soft); font-family: var(--font-body); font-size: 10px; font-weight: 700; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease; }
+.product-filter-chips .filter-tag:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+.product-filter-chips .filter-tag.active { border-color: var(--blue); background: var(--blue); color: #fff; box-shadow: 0 7px 14px rgba(21,101,192,.16); }
+.product-sort-label { display: block; margin-top: 20px; margin-bottom: 7px; color: var(--ink-soft); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.product-sort { width: 100%; padding: 10px 12px; border: 1px solid rgba(21,101,192,.15); border-radius: 11px; background: #fff; color: var(--ink); font-family: var(--font-body); font-size: 11px; font-weight: 600; }
+.product-sort:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(21,101,192,.1); outline: none; }
+.premium-filter-card .filter-search { margin-bottom: 4px; }
+@media (max-width: 800px) { .product-filter-chips { max-height: 140px; overflow: auto; padding-right: 3px; } }

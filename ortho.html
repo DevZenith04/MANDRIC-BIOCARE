@@ -126,10 +126,10 @@
 <div class="filter-sidebar premium-filter-card" id="filterSidebar">
 <h3>🔍 Search Products</h3>
 <input class="filter-search" id="ortho-search" oninput="filterProducts('ortho',this.value)" placeholder="Search ortho product..." type="text"/>
-</div>
+<div class="product-filter-heading">Browse by focus</div><div aria-label="Filter products by focus" class="product-filter-chips" id="ortho-filters" role="group"></div><label class="product-sort-label" for="ortho-sort">Sort products</label><select class="product-sort" id="ortho-sort" onchange="sortProducts('ortho', this.value)"><option value="default">Featured</option><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="category">Category</option></select></div>
 </div>
 <div>
-<div class="prod-count premium-count" id="ortho-count"></div>
+<div aria-live="polite" class="prod-count premium-count" id="ortho-count"></div>
 <div class="product-grid premium-product-grid" id="ortho-grid"></div>
 <div class="no-results hidden" id="ortho-empty"><div class="nri">🔍</div><p>No products found. Try a different search or filter.</p></div>
 </div>
@@ -141,7 +141,7 @@
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<div class="logo-wrap"><img alt="Mandric Biocare" decoding="async" fetchpriority="high" id="logo-footer" loading="eager" src="logo.png"/></div>
+<div class="logo-wrap"><img alt="Mandric Biocare" decoding="async" fetchpriority="low" id="logo-footer" loading="lazy" src="logo.png"/></div>
 <p>Mandric Biocare Pvt. Ltd. — Trusted pharmaceutical partner across India, dedicated to quality healthcare for all.</p>
 </div>
 <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
