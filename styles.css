@@ -735,7 +735,7 @@ nav {
 .about-bg {
   position: absolute;
   inset: 0;
-  background-image: url('./bg-about.png');
+  background-image: url('./bg-about.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -991,7 +991,7 @@ nav {
 .strengths-bg {
   position: absolute;
   inset: 0;
-  background-image: url('./bg-strengths.png');
+  background-image: url('./bg-strengths.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1210,7 +1210,7 @@ nav {
 .enquiry-cta-bg {
   position: absolute;
   inset: 0;
-  background-image: url('./bg-cta.png');
+  background-image: url('./bg-cta.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
