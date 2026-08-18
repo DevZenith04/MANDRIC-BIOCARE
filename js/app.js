@@ -195,47 +195,22 @@ function getBenefitPoints(cat, form) {
 
 function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText) {
   var benefitPoints = getBenefitPoints(cat, form);
-  var icoHtml = img
-    ? '<img src="' + img + '" alt="' + product + '" loading="lazy" decoding="async" fetchpriority="low">'
-    : (ico || '&#128138;');
-
   return ''
-    + '<div class="modal-product-eyebrow"><span>PRODUCT SPOTLIGHT</span><i>•</i><span>ENQUIRE WITH CONFIDENCE</span></div>'
-    + '<div class="modal-prod-hero">'
-    + '<div class="modal-prod-visual">'
-    + '<div class="modal-prod-visual-glow"></div>'
-    + '<div class="modal-prod-ico' + (img ? ' modal-prod-ico-photo' : '') + '">' + icoHtml + '</div>'
-    + '<span class="modal-prod-visual-label">Mandric Biocare</span>'
-    + '</div>'
-    + '<div class="modal-prod-info">'
-    + '<div class="modal-prod-overline">' + (cat || 'Healthcare product') + '</div>'
-    + '<div class="modal-prod-name">' + product + '</div>'
-    + (comp ? '<div class="modal-prod-comp">' + comp + '</div>' : '')
-    + '<div class="modal-prod-meta">'
+    + '<div class="modal-summary-card">'
+    + '<div class="modal-summary-label">Selected product</div>'
+    + '<div class="modal-summary-name">' + product + '</div>'
+    + (comp ? '<div class="modal-summary-comp">' + comp + '</div>' : '')
+    + '<div class="modal-summary-meta">'
     + (cat ? '<span class="prod-tag">' + cat + '</span>' : '')
     + (form ? '<span class="prod-tag green">' + form + '</span>' : '')
     + '</div>'
-    + '<div class="modal-prod-prompt">Tell us what you need and our team will help you with the next step.</div>'
     + '</div>'
+    + '<div class="modal-mini-benefits">'
+    + benefitPoints.map(function (point) { return '<div><i>✓</i><span>' + point + '</span></div>'; }).join('')
     + '</div>'
-    + '<div class="modal-prod-detail-grid">'
-    + '<div class="modal-prod-detail-card"><span class="modal-detail-icon">✓</span><div><small>Portfolio standard</small><strong>Quality-led selection</strong></div></div>'
-    + '<div class="modal-prod-detail-card"><span class="modal-detail-icon">↗</span><div><small>Availability</small><strong>Enquire for supply</strong></div></div>'
-    + '</div>'
-    + '<div class="modal-prod-benefits">'
-    + benefitPoints.map(function (point) {
-      return '<div class="modal-benefit"><i class="ti ti-circle-check" aria-hidden="true"></i><span>' + point + '</span></div>';
-    }).join('')
-    + '</div>'
-    + '<div class="modal-prod-desc">'
-    + '<div class="modal-prod-desc-label"><span>Product overview</span><i>01</i></div>'
-    + '<div class="modal-prod-desc-text">' + desc + '</div>'
-    + '</div>'
-    + '<div class="modal-prod-wa">'
-    + '<a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry <span>↗</span></a>'
-    + '</div>';
+    + '<div class="modal-overview"><div><span>PRODUCT OVERVIEW</span><b>01</b></div><p>' + desc + '</p></div>'
+    + '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; WhatsApp the team <span>↗</span></a></div>';
 }
-
 function openModal(product, comp, cat, form, ico, img) {
   var isProduct = product && product !== 'General Enquiry' && product !== 'Partnership Enquiry';
   var overlay = document.getElementById('enquiryModal');
@@ -249,15 +224,23 @@ function openModal(product, comp, cat, form, ico, img) {
   document.getElementById('enquiryForm').style.display = 'block';
   document.getElementById('successMsg').style.display = 'none';
 
+  var showcaseImage = document.getElementById('modalShowcaseImage');
+  var showcaseTitle = document.getElementById('modalShowcaseTitle');
+  var showcaseCategory = document.getElementById('modalShowcaseCategory');
+
   if (isProduct) {
     var waText = 'Hi, I would like to enquire about: ' + product + (comp ? ' (' + comp + ')' : '');
     var desc = generateDesc(product, comp, cat, form);
-
     badge.innerHTML = buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText);
-
+    showcaseTitle.textContent = product;
+    showcaseCategory.textContent = (cat || 'Healthcare product') + (form ? ' · ' + form : '');
+    showcaseImage.innerHTML = img ? '<img src="' + img + '" alt="' + product + '" loading="eager" decoding="async">' : '<span>' + (ico || '&#128138;') + '</span>';
     document.getElementById('eq-msg').value = waText;
   } else {
     badge.innerHTML = '';
+    showcaseTitle.textContent = 'Start a conversation';
+    showcaseCategory.textContent = 'Tell us how we can support your healthcare requirement.';
+    showcaseImage.innerHTML = '<span class="showcase-default-mark">M</span>';
     document.getElementById('eq-msg').value = '';
   }
 
