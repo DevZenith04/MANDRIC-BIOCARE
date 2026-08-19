@@ -4428,3 +4428,15 @@ html { scroll-behavior: smooth; }
   .home-v2-visual .hero-product-float { right: 0; top: 171px; width: 146px; }
   .home-v2-visual .hero-product-float img { height: 98px; }
 }
+
+
+/* Homepage range finder update */
+.home-v2-finder .finder-image { min-height: 270px; padding: 18px; }
+.home-v2-finder .finder-image img { width: 100%; height: 245px; object-fit: contain; transform: scale(1.08); transition: transform .45s var(--ease-out); }
+.home-v2-finder .finder-card:hover .finder-image img { transform: scale(1.16) translateY(-4px); }
+.home-v2-finder .finder-card-body h3 { font-size: 25px; }
+@media (max-width: 680px) {
+  .home-v2-finder .finder-image { min-height: 220px; }
+  .home-v2-finder .finder-image img { height: 198px; }
+  .home-v2-finder .finder-card-body h3 { font-size: 23px; }
+}
