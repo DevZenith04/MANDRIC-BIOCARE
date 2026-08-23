@@ -4531,3 +4531,15 @@ html { scroll-behavior: smooth; }
 @media (max-width: 680px) {
   .hero-product-action { margin-top: 8px; font-size: 8px; }
 }
+
+
+/* Homepage product popup layering and clean card affordance */
+.modal-overlay { z-index: 2000; isolation: isolate; }
+.modal-overlay.open { position: fixed; inset: 0; }
+.modal-v4 { position: relative; z-index: 2001; }
+.home-v2-visual .hero-product-card.is-clickable { cursor: pointer; }
+.hero-product-action { display: none !important; }
+@media (max-width: 780px) {
+  .modal-overlay.open { align-items: center; padding: 8px; }
+  .modal-v4 { max-height: calc(100svh - 16px); }
+}
