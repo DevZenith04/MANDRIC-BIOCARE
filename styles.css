@@ -4734,3 +4734,80 @@ html { scroll-behavior: smooth; }
   .premium-filter-card.open .product-sort { display: block; }
   .premium-filter-card.open .product-sort { min-height: 46px; font-size: 16px; }
 }
+
+
+/* Care-segment marquee: faster circular orbit presentation. */
+.home-v2-marquee {
+  position: relative;
+  display: grid;
+  min-height: 168px;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+  background: linear-gradient(135deg, #f8fbff, #fff8f3);
+}
+.home-v2-marquee::before {
+  content: '';
+  position: absolute;
+  width: min(76vw, 760px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(21,101,192,.14);
+  border-radius: 50%;
+  box-shadow: 0 0 0 18px rgba(21,101,192,.035), 0 0 0 42px rgba(235,91,42,.025);
+}
+.home-v2-marquee-track {
+  position: relative;
+  display: block;
+  width: min(76vw, 760px);
+  height: min(76vw, 760px);
+  min-width: 0;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: clamp(9px, 1.05vw, 12px);
+  letter-spacing: .16em;
+  animation: marqueeOrbit 13s linear infinite;
+}
+.home-v2-marquee-track span,
+.home-v2-marquee-track i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 31%;
+  height: 42px;
+  margin: -21px -15.5%;
+  white-space: nowrap;
+}
+.home-v2-marquee-track span:nth-of-type(1) { transform: rotate(0deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(0deg); }
+.home-v2-marquee-track i:nth-of-type(1) { transform: rotate(45deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(-45deg); }
+.home-v2-marquee-track span:nth-of-type(2) { transform: rotate(90deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(-90deg); }
+.home-v2-marquee-track i:nth-of-type(2) { transform: rotate(135deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(-135deg); }
+.home-v2-marquee-track span:nth-of-type(3) { transform: rotate(180deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(-180deg); }
+.home-v2-marquee-track i:nth-of-type(3) { transform: rotate(225deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(-225deg); }
+.home-v2-marquee-track span:nth-of-type(4) { transform: rotate(270deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(90deg); }
+.home-v2-marquee-track i:nth-of-type(4) { transform: rotate(315deg) translateY(calc(min(76vw, 760px) / -2 + 21px)) rotate(-315deg); }
+.home-v2-marquee-track span { color: var(--ink-soft); font-family: var(--font-display); font-weight: 600; }
+.home-v2-marquee-track i { width: auto; height: auto; margin: -8px; color: var(--orange); font-size: 17px; font-style: normal; }
+@media (prefers-reduced-motion: no-preference) {
+  .home-v2-marquee-track { animation: marqueeOrbit 13s linear infinite; }
+}
+@keyframes marqueeOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (max-width: 560px) {
+  .home-v2-marquee { min-height: 132px; }
+  .home-v2-marquee::before { width: 92vw; }
+  .home-v2-marquee-track { width: 92vw; height: 92vw; font-size: 8px; }
+  .home-v2-marquee-track span,
+  .home-v2-marquee-track i { height: 34px; margin-top: -17px; }
+  .home-v2-marquee-track span:nth-of-type(1) { transform: rotate(0deg) translateY(calc(92vw / -2 + 17px)) rotate(0deg); }
+  .home-v2-marquee-track i:nth-of-type(1) { transform: rotate(45deg) translateY(calc(92vw / -2 + 17px)) rotate(-45deg); }
+  .home-v2-marquee-track span:nth-of-type(2) { transform: rotate(90deg) translateY(calc(92vw / -2 + 17px)) rotate(-90deg); }
+  .home-v2-marquee-track i:nth-of-type(2) { transform: rotate(135deg) translateY(calc(92vw / -2 + 17px)) rotate(-135deg); }
+  .home-v2-marquee-track span:nth-of-type(3) { transform: rotate(180deg) translateY(calc(92vw / -2 + 17px)) rotate(-180deg); }
+  .home-v2-marquee-track i:nth-of-type(3) { transform: rotate(225deg) translateY(calc(92vw / -2 + 17px)) rotate(-225deg); }
+  .home-v2-marquee-track span:nth-of-type(4) { transform: rotate(270deg) translateY(calc(92vw / -2 + 17px)) rotate(90deg); }
+  .home-v2-marquee-track i:nth-of-type(4) { transform: rotate(315deg) translateY(calc(92vw / -2 + 17px)) rotate(-315deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-v2-marquee-track { animation: none !important; }
+}
