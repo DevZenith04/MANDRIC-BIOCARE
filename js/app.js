@@ -683,3 +683,28 @@ function filterHomeProducts(focus, button) {
     card.classList.toggle('is-hidden', !match);
   });
 }
+
+
+// Homepage featured product cards
+function openFeaturedProduct(key) {
+  var featured = {
+    chymodric: {
+      name: 'Chymodric Forte',
+      comp: 'Trypsin 96 mg + Bromelain 180 mg + Rutoside 200 mg',
+      cat: 'Enzyme / Anti-inflammatory',
+      form: 'Tablet',
+      ico: '&#129657;',
+      img: 'chymodric-forte.webp'
+    },
+    calcidric: {
+      name: 'Calcidric Plus',
+      comp: 'Calcium 500 mg + Vitamin D3 1000 IU + Magnesium 50 mg',
+      cat: 'Bone Health',
+      form: 'Tablet',
+      ico: '&#129460;',
+      img: 'calcidric-plus.webp'
+    }
+  };
+  var product = featured[key];
+  if (product) openModal(product.name, product.comp, product.cat, product.form, product.ico, product.img);
+}
