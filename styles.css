@@ -4811,3 +4811,17 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .home-v2-marquee-track { animation: none !important; }
 }
+
+
+/* Pharma page: make the mobile search control especially prominent. */
+@media (max-width: 800px) {
+  .page-pharma .premium-filter-card .filter-search {
+    min-height: 52px;
+    border: 2px solid rgba(21,101,192,.28);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(13,71,161,.09);
+    font-size: 16px;
+  }
+  .page-pharma .premium-filter-card .filter-search::placeholder { color: #71809a; opacity: 1; }
+}
