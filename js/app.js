@@ -208,7 +208,7 @@ function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText)
     + '<div class="modal-mini-benefits">'
     + benefitPoints.map(function (point) { return '<div><i>✓</i><span>' + point + '</span></div>'; }).join('')
     + '</div>'
-    + '<div class="modal-overview"><div><span>PRODUCT OVERVIEW</span><b>01</b></div><p>' + desc + '</p></div>'
+    + '<div class="modal-overview"><div><span>PRODUCT OVERVIEW</span></div><p>' + desc + '</p></div>'
     + '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; WhatsApp the team <span>↗</span></a></div>';
 }
 var modalLastFocus = null;

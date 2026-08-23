@@ -4634,3 +4634,18 @@ html { scroll-behavior: smooth; }
   .modal-v4 #enquiryForm select,
   .modal-v4 #enquiryForm textarea { font-size: 14px; }
 }
+
+
+/* Popup visual cleanup: keep the product still and remove circular background decoration. */
+.modal-v4 .modal-showcase::after,
+.modal-v4 .showcase-orbit { display: none; }
+.modal-v4 .modal-showcase-image {
+  border-radius: 18px;
+  transform: none;
+  transition: box-shadow .35s var(--ease-out);
+}
+.modal-v4 .modal-showcase-image:hover {
+  transform: none;
+  box-shadow: 0 25px 50px rgba(0,20,61,.25), 0 0 0 17px rgba(255,255,255,.08);
+}
+.modal-v4 .modal-overview > div { justify-content: flex-start; }
