@@ -4601,3 +4601,36 @@ html { scroll-behavior: smooth; }
   .visual-language-v3 .prod-comp { font-size: 14px; }
   .visual-language-v3 .premium-content-section > .container > p[style*="font-size"] { font-size: 16px !important; }
 }
+
+
+/* Product popup supporting copy: additional +2px readability pass */
+.modal-v4 .modal-showcase-top,
+.modal-v4 .showcase-kicker,
+.modal-v4 .showcase-signature,
+.modal-v4 .modal-panel-kicker,
+.modal-v4 .modal-summary-label,
+.modal-v4 .modal-summary-meta .prod-tag,
+.modal-v4 .modal-overview > div,
+.modal-v4 .modal-overview > div b { font-size: 11px; }
+.modal-v4 .modal-showcase-bottom p { font-size: 13px; }
+.modal-v4 .modal-panel-head p { font-size: 15px; }
+.modal-v4 .modal-summary-comp { font-size: 14px; }
+.modal-v4 .modal-mini-benefits span { font-size: 13px; }
+.modal-v4 .modal-overview p { font-size: 14px; }
+.modal-v4 .btn-wa-quick { font-size: 13px; }
+.modal-v4 #enquiryForm label { font-size: 14px; }
+.modal-v4 #enquiryForm input,
+.modal-v4 #enquiryForm select,
+.modal-v4 #enquiryForm textarea { font-size: 14px; }
+.modal-v4 .modal-prod-comp { font-size: 16px; }
+@media (max-width: 780px) {
+  .modal-v4 .modal-showcase-bottom p { font-size: 14px; }
+  .modal-v4 .modal-panel-head p { font-size: 15px; }
+  .modal-v4 .modal-summary-comp { font-size: 14px; }
+  .modal-v4 .modal-mini-benefits span { font-size: 14px; }
+  .modal-v4 .modal-overview p { font-size: 14px; }
+  .modal-v4 #enquiryForm label,
+  .modal-v4 #enquiryForm input,
+  .modal-v4 #enquiryForm select,
+  .modal-v4 #enquiryForm textarea { font-size: 14px; }
+}
