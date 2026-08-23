@@ -4965,3 +4965,22 @@ html { scroll-behavior: smooth; }
   .home-v2-marquee-track { animation-duration: 7s !important; }
   .home-v2-marquee-track i { width: auto; height: auto; font-size: 13px; }
 }
+
+
+/* Infinite loop finish: two identical sets meet at the exact reset point. */
+.home-v2-marquee-track {
+  white-space: nowrap;
+  animation: marqueeInfinite 9s linear 0s infinite normal none running !important;
+  backface-visibility: hidden;
+}
+.home-v2-marquee-track .marquee-set { min-width: max-content; }
+@keyframes marqueeInfinite {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (max-width: 560px) {
+  .home-v2-marquee-track { animation-duration: 7s !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-v2-marquee-track { animation: none !important; }
+}
