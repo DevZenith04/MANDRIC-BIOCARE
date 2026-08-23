@@ -4518,3 +4518,16 @@ html { scroll-behavior: smooth; }
   }
   .modal-v4 .modal-showcase-image img { width: 93%; height: 93%; }
 }
+
+
+/* Clickable homepage featured products */
+.home-v2-visual .hero-product-card.is-clickable { cursor: pointer; transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .3s ease; }
+.home-v2-visual .hero-product-card.is-clickable:hover { border-color: rgba(255,255,255,.9); box-shadow: 0 34px 82px rgba(0,0,0,.3); }
+.home-v2-visual .hero-product-main.is-clickable:hover { transform: rotate(-3deg) translateY(-8px); }
+.home-v2-visual .hero-product-float.is-clickable:hover { transform: rotate(5deg) translateY(-8px); }
+.home-v2-visual .hero-product-card.is-clickable:focus-visible { outline: 3px solid #ff9b71; outline-offset: 5px; }
+.hero-product-action { display: block; margin-top: 10px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.hero-product-action b { color: var(--orange); font-size: 13px; margin-left: 3px; }
+@media (max-width: 680px) {
+  .hero-product-action { margin-top: 8px; font-size: 8px; }
+}
