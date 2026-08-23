@@ -4543,3 +4543,61 @@ html { scroll-behavior: smooth; }
   .modal-overlay.open { align-items: center; padding: 8px; }
   .modal-v4 { max-height: calc(100svh - 16px); }
 }
+
+
+/* Global supporting-text readability upgrade: +2px */
+.visual-language-v3 .page-hero-support,
+.visual-language-v3 .hero-sub,
+.visual-language-v3 .product-page-hero > .container > p,
+.visual-language-v3 .finder-heading > p,
+.visual-language-v3 .finder-card-body p,
+.visual-language-v3 .home-v2-intro .intro-body p,
+.visual-language-v3 .home-v2-spotlight p,
+.visual-language-v3 .home-v2-values p,
+.visual-language-v3 .home-v2-network p,
+.visual-language-v3 .home-v2-insights p,
+.visual-language-v3 .timeline-desc,
+.visual-language-v3 .str-desc,
+.visual-language-v3 .contact-info p,
+.visual-language-v3 .contact-form p,
+.visual-language-v3 .footer-brand p,
+.visual-language-v3 .footer-bottom p {
+  font-size: 15px;
+}
+.visual-language-v3 .premium-content-section > .container > p[style*="font-size"] {
+  font-size: 17px !important;
+}
+.visual-language-v3 .premium-product-grid .prod-comp,
+.visual-language-v3 .prod-comp { font-size: 14px; }
+.visual-language-v3 .hero-product-card small { font-size: 11px; }
+.visual-language-v3 .proof-stat span { font-size: 12px; }
+.visual-language-v3 .home-v2-assurance span { font-size: 12px; }
+.visual-language-v3 .hero-visual-panel small { font-size: 12px; }
+.visual-language-v3 .map-center small,
+.visual-language-v3 .map-caption span { font-size: 11px; }
+.visual-language-v3 .modal-v4 .modal-panel-head p { font-size: 13px; }
+.visual-language-v3 .modal-v4 .modal-summary-comp { font-size: 12px; }
+.visual-language-v3 .modal-v4 .modal-mini-benefits span { font-size: 11px; }
+.visual-language-v3 .modal-v4 .modal-overview p { font-size: 12px; }
+.visual-language-v3 .product-modal .modal-prod-comp { font-size: 14px; }
+@media (max-width: 680px) {
+  .visual-language-v3 .page-hero-support,
+  .visual-language-v3 .hero-sub,
+  .visual-language-v3 .product-page-hero > .container > p,
+  .visual-language-v3 .finder-heading > p,
+  .visual-language-v3 .finder-card-body p,
+  .visual-language-v3 .home-v2-intro .intro-body p,
+  .visual-language-v3 .home-v2-spotlight p,
+  .visual-language-v3 .home-v2-values p,
+  .visual-language-v3 .home-v2-network p,
+  .visual-language-v3 .home-v2-insights p,
+  .visual-language-v3 .timeline-desc,
+  .visual-language-v3 .str-desc,
+  .visual-language-v3 .contact-info p,
+  .visual-language-v3 .contact-form p,
+  .visual-language-v3 .footer-brand p,
+  .visual-language-v3 .footer-bottom p,
+  .visual-language-v3 .premium-product-grid .prod-comp,
+  .visual-language-v3 .prod-comp { font-size: 14px; }
+  .visual-language-v3 .premium-content-section > .container > p[style*="font-size"] { font-size: 16px !important; }
+}
