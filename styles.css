@@ -4674,3 +4674,63 @@ html { scroll-behavior: smooth; }
     outline-offset: 3px;
   }
 }
+
+
+/* Mobile product discovery: keep search immediately visible and make the input touch-friendly. */
+@media (max-width: 800px) {
+  .premium-product-inner { display: block; }
+  .premium-product-inner > div:first-child { margin-bottom: 18px; }
+  .premium-product-inner .filter-toggle-btn { margin-bottom: 10px; }
+  .premium-filter-card {
+    display: block;
+    max-height: none;
+    overflow: visible;
+    padding: 16px;
+    border: 1px solid rgba(21,101,192,.14);
+    border-radius: 18px;
+    background: rgba(255,255,255,.96);
+  }
+  .premium-filter-card h3 {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .premium-filter-card .filter-search {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 13px 14px;
+    font-size: 16px;
+    line-height: 1.2;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .premium-filter-card:not(.open) .product-filter-heading,
+  .premium-filter-card:not(.open) .product-filter-chips,
+  .premium-filter-card:not(.open) .product-sort-label,
+  .premium-filter-card:not(.open) .product-sort { display: none; }
+  .premium-filter-card.open {
+    max-height: 620px;
+    overflow: visible;
+    padding: 16px;
+    border: 1px solid rgba(21,101,192,.18);
+    border-radius: 18px;
+    margin-bottom: 16px;
+  }
+  .premium-filter-card.open .product-filter-heading { display: block; }
+  .premium-filter-card.open .product-filter-chips {
+    display: flex;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 2px 2px 5px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .premium-filter-card.open .product-filter-chips .filter-tag {
+    min-height: 38px;
+    padding: 9px 11px;
+    font-size: 11px;
+  }
+  .premium-filter-card.open .product-sort-label,
+  .premium-filter-card.open .product-sort { display: block; }
+  .premium-filter-card.open .product-sort { min-height: 46px; font-size: 16px; }
+}
