@@ -4869,3 +4869,71 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .home-v2-marquee-track { animation: none !important; }
 }
+
+
+/* Linear repeating marquee correction: fast horizontal movement with rounded styling. */
+.home-v2-marquee {
+  min-height: 86px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(21,101,192,.08);
+  border-bottom: 1px solid rgba(21,101,192,.08);
+  background: linear-gradient(90deg, #fbfdff, #fffaf7, #fbfdff);
+}
+.home-v2-marquee::before { display: none; }
+.home-v2-marquee-track {
+  display: flex;
+  width: max-content;
+  height: auto;
+  min-width: 0;
+  align-items: center;
+  padding: 0;
+  animation: marqueeLinearFast 9s linear infinite !important;
+  will-change: transform;
+}
+.home-v2-marquee-track .marquee-set {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 26px;
+  padding: 0 26px;
+}
+.home-v2-marquee-track span,
+.home-v2-marquee-track i {
+  position: static;
+  display: inline-flex;
+  width: auto;
+  height: 42px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  transform: none !important;
+  white-space: nowrap;
+}
+.home-v2-marquee-track span {
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(10px, 1.05vw, 13px);
+  font-weight: 600;
+  letter-spacing: .16em;
+}
+.home-v2-marquee-track i {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(232,69,10,.25);
+  border-radius: 50%;
+  background: rgba(232,69,10,.06);
+  color: var(--orange);
+  font-size: 15px;
+  font-style: normal;
+}
+@keyframes marqueeLinearFast { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 560px) {
+  .home-v2-marquee { min-height: 72px; padding: 10px 0; }
+  .home-v2-marquee-track { animation-duration: 7s !important; }
+  .home-v2-marquee-track .marquee-set { gap: 15px; padding: 0 15px; }
+  .home-v2-marquee-track span { height: 34px; font-size: 8px; letter-spacing: .12em; }
+  .home-v2-marquee-track i { width: 24px; height: 24px; font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-v2-marquee-track { animation: none !important; }
+}
