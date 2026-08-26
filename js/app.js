@@ -531,7 +531,7 @@ var products = {
 
 var activeCat = { pharma: 'All', paediatric: 'All', surgical: 'All', ortho: 'All' };
 var activeSearch = { pharma: '', paediatric: '', surgical: '', ortho: '' };
-var activeSort = { pharma: 'default', paediatric: 'default', surgical: 'default', ortho: 'default' };
+var activeSort = { pharma: 'name-asc', paediatric: 'default', surgical: 'default', ortho: 'default' };
 var _lastFiltered = [];
 
 function renderProductControls(seg) {

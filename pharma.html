@@ -130,7 +130,7 @@
 <div class="filter-sidebar premium-filter-card" id="filterSidebar">
 <h3>🔍 Search Products</h3>
 <input aria-label="Search medicine name..." class="filter-search" id="pharma-search" oninput="filterProducts('pharma',this.value)" placeholder="Search medicine name..." type="text"/>
-<div class="product-filter-heading">Browse by focus</div><div aria-label="Filter products by focus" class="product-filter-chips" id="pharma-filters" role="group"></div><label class="product-sort-label" for="pharma-sort">Sort products</label><select class="product-sort" id="pharma-sort" onchange="sortProducts('pharma', this.value)"><option value="default">Featured</option><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="category">Category</option></select></div>
+<div class="product-filter-heading">Browse by focus</div><div aria-label="Filter products by focus" class="product-filter-chips" id="pharma-filters" role="group"></div><label class="product-sort-label" for="pharma-sort">Sort products</label><select class="product-sort" id="pharma-sort" onchange="sortProducts('pharma', this.value)"><option value="default">Featured</option><option selected value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="category">Category</option></select></div>
 </div>
 <div>
 <div aria-live="polite" class="prod-count premium-count" id="pharma-count"></div>
@@ -158,7 +158,7 @@
 </div>
 </div>
 </footer>
-<script src="js/app.js?v=pharma-catalogue-v2"></script>
+<script src="js/app.js?v=pharma-sort-az-v3"></script>
 <script>renderProducts('pharma');</script>
 </body>
 </html>
