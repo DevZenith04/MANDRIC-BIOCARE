@@ -174,6 +174,11 @@ function getBenefitPoints(cat, form) {
       'Supports joint comfort and mobility discussions',
       'Practical for customer, doctor and wholesale enquiries',
       'Keeps the enquiry flow simple and fast'
+    ],
+    Diabetes: [
+      'Supports diabetes-care and blood-sugar management discussions',
+      'Clear composition details for professional and trade enquiries',
+      'Suitable for retailer, wholesale and distribution follow-up'
     ]
   };
 
@@ -439,6 +444,7 @@ document.addEventListener('keydown', function (e) {
 // ===== PRODUCT DATA =====
 var products = {
   pharma: [
+    { name: 'Glycodric-GP2', comp: 'Glimepiride, Pioglitazone Hydrochloride & Metformin Hydrochloride (SR) Tablets', cat: 'Diabetes', form: 'Tablet', ico: '&#128138;', img: 'glycodric-gp2.webp' },
     // ── MANDRIC BIOCARE PAEDIATRIC RANGE ──
     { name: 'Becodric', comp: 'Vitamin B1, B6, B12 + L-Lysine Hydrochloride + D-Panthenol Syrup (with Zinc)', cat: 'Nutritional Supplement', form: 'Syrup', ico: '&#129514;', img: 'becodric.webp' },
     { name: 'Calcidric-P', comp: 'Calcium 300 mg + Phosphorus 150 mg + Magnesium 75 mg + Zinc 4 mg + Vitamin D3 400 IU', cat: 'Bone Health', form: 'Suspension', ico: '&#129386;', img: 'calidric-p.webp' },
@@ -456,7 +462,7 @@ var products = {
     { name: 'Xylodric', comp: 'Xylometazoline nasal drops', cat: 'Cough & Cold', form: 'Nasal Drops', ico: '&#128560;', img: 'xylodric.webp' },
     // ── MANDRIC BIOCARE GENERAL RANGE ──
     { name: 'Chymodric Forte', comp: 'Trypsin 96 mg + Bromelain 180 mg + Rutoside 200 mg', cat: 'Enzyme / Anti-inflammatory', form: 'Tablet', ico: '&#129657;', img: 'chymodric-forte.webp' },
-    { name: 'Calcidric Plus', comp: 'Calcium 500 mg + Vitamin D3 1000 IU + Magnesium 50 mg', cat: 'Bone Health', form: 'Tablet', ico: '&#129460;', img: 'calcidric-plus.webp' },
+    { name: 'Calcidric Plus', comp: 'Calcium, Calcitriol, Vitamin K2-7, Methylcobalamin, Magnesium, Boron & Zinc Softgel Capsules', cat: 'Bone Health', form: 'Softgel Capsule', ico: '&#129460;', img: 'calcidric-plus.webp' },
     { name: 'Nutridric Capsules', comp: 'Natural Extracts, Amino Acids, Nutrients, Omega-3 Fatty Acids, Vitamins & Minerals', cat: 'Nutraceutical', form: 'Softgel Capsule', ico: '&#11088;', img: 'nutridric-cap.webp' },
     { name: 'Nutridric-SF', comp: 'Protein Powder with DHA, Multivitamins & Multiminerals (Sugar Free)', cat: 'Nutraceutical', form: 'Powder', ico: '&#11088;', img: 'nutridric-sf.webp' },
     { name: 'Rabidric 40 DSR', comp: 'Rabeprazole Sodium 40 mg + Domperidone 10 mg (IR) 30 mg', cat: 'Antacid / Proton Pump Inhibitor', form: 'Capsule', ico: '&#129531;', img: 'rabidric-40-dsr.webp' },
