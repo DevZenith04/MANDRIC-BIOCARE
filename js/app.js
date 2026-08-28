@@ -497,6 +497,7 @@ var products = {
 
   paediatric: [
     // ── MANDRIC BIOCARE BRANDED PAEDIATRIC RANGE ──
+    { name: 'Cypdric Drops', comp: 'Cyproheptadine Hydrochloride 2 mg + Tricholine Citrate 275 mg per ml (equivalent to Tricholine 55 mg)', cat: 'Nutrition', form: 'Drops', ico: '&#128167;', img: 'cypdric.webp' },
     { name: 'Becodric', comp: 'Vitamin B1, B6, B12 + L-Lysine Hydrochloride + D-Panthenol Syrup (with Zinc)', cat: 'Nutritional Supplement', form: 'Syrup', ico: '&#129514;', img: 'becodric.webp' },
     { name: 'Calcidric-P', comp: 'Calcium 300 mg + Phosphorus 150 mg + Magnesium 75 mg + Zinc 4 mg + Vitamin D3 400 IU', cat: 'Bone Health', form: 'Suspension', ico: '&#129386;', img: 'calidric-p.webp' },
     { name: 'Ledric-M', comp: 'Montelukast 4 mg + Levocetirizine Dihydrochloride 2.5 mg per 5 ml', cat: 'Anti-allergic (Pediatric)', form: 'Syrup', ico: '&#127798;', img: 'ledric-m.webp' },
