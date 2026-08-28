@@ -4984,3 +4984,41 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .home-v2-marquee-track { animation: none !important; }
 }
+
+
+/* Seamless marquee loop: the second identical set occupies the exact reset distance. */
+.home-v2-marquee {
+  overflow: hidden;
+  border-radius: 0;
+}
+.home-v2-marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  min-width: max-content;
+  gap: 0;
+  transform: translate3d(0, 0, 0);
+  animation: marqueeSeamlessLinear 10s linear infinite !important;
+  will-change: transform;
+}
+.home-v2-marquee-track .marquee-set {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: max-content;
+  white-space: nowrap;
+}
+.home-v2-marquee-track span,
+.home-v2-marquee-track i {
+  position: static;
+  transform: none !important;
+}
+@keyframes marqueeSeamlessLinear {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (max-width: 560px) {
+  .home-v2-marquee-track { animation-duration: 8s !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-v2-marquee-track { animation: none !important; }
+}
