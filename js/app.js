@@ -445,6 +445,7 @@ document.addEventListener('keydown', function (e) {
 var products = {
   pharma: [
     { name: 'Glycodric-GP2', comp: 'Glimepiride, Pioglitazone Hydrochloride & Metformin Hydrochloride (SR) Tablets', cat: 'Diabetes', form: 'Tablet', ico: '&#128138;', img: 'glycodric-gp2.webp' },
+    { name: 'Cypdric Drops', comp: 'Cyproheptadine Hydrochloride 2 mg + Tricholine Citrate 275 mg per ml (equivalent to Tricholine 55 mg)', cat: 'Nutrition', form: 'Drops', ico: '&#128167;', img: 'cypdric.webp' },
     // ── MANDRIC BIOCARE PAEDIATRIC RANGE ──
     { name: 'Becodric', comp: 'Vitamin B1, B6, B12 + L-Lysine Hydrochloride + D-Panthenol Syrup (with Zinc)', cat: 'Nutritional Supplement', form: 'Syrup', ico: '&#129514;', img: 'becodric.webp' },
     { name: 'Calcidric-P', comp: 'Calcium 300 mg + Phosphorus 150 mg + Magnesium 75 mg + Zinc 4 mg + Vitamin D3 400 IU', cat: 'Bone Health', form: 'Suspension', ico: '&#129386;', img: 'calidric-p.webp' },
@@ -455,8 +456,6 @@ var products = {
     { name: 'Racedric', comp: 'Racecadotril 15 mg/5 ml', cat: 'Anti-diarrheal (Pediatric)', form: 'Suspension', ico: '&#129514;', img: 'racedric.webp' },
     { name: 'Nutridric Syrup', comp: 'Multivitamin, Multimineral, B-Complex & Antioxidant Syrup', cat: 'Nutritional Supplement', form: 'Syrup', ico: '&#11088;', img: 'nutridric-syp.webp' },
     { name: 'Dricfer-XT', comp: 'Ferrous Fumarate 30 mg + Folic Acid 550 mcg', cat: 'Iron Supplement (Pediatric)', form: 'Suspension', ico: '&#129386;', img: 'dricfer-xp.webp' },
-    { name: 'Dricpod 50', comp: 'Cefpodoxime Proxetil Oral Suspension (11 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-50.webp' },
-    { name: 'Dricpod 100', comp: 'Cefpodoxime Proxetil Oral Suspension (5.5 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-100.webp' },
     { name: 'Clav Dric', comp: 'Amoxycillin 200 mg + Potassium Clavulanate 28.5 mg (Oral Suspension)', cat: 'Antibiotic (Pediatric)', form: 'Dry Syrup', ico: '&#128138;', img: 'clav-dric.webp' },
     { name: 'Nasodric', comp: 'Saline nasal formulation', cat: 'Respiratory', form: 'Nasal Drops', ico: '&#128167;', img: 'nasodric.webp' },
     { name: 'Xylodric', comp: 'Xylometazoline nasal drops', cat: 'Cough & Cold', form: 'Nasal Drops', ico: '&#128560;', img: 'xylodric.webp' },
@@ -507,8 +506,6 @@ var products = {
     { name: 'Racedric', comp: 'Racecadotril 15 mg/5 ml', cat: 'Anti-diarrheal (Pediatric)', form: 'Suspension', ico: '&#129514;', img: 'racedric.webp' },
     { name: 'Nutridric Syrup', comp: 'Multivitamin, Multimineral, B-Complex & Antioxidant Syrup', cat: 'Nutritional Supplement', form: 'Syrup', ico: '&#11088;', img: 'nutridric-syp.webp' },
     { name: 'Dricfer-XT', comp: 'Ferrous Fumarate 30 mg + Folic Acid 550 mcg', cat: 'Iron Supplement (Pediatric)', form: 'Suspension', ico: '&#129386;', img: 'dricfer-xp.webp' },
-    { name: 'Dricpod 50', comp: 'Cefpodoxime Proxetil Oral Suspension (11 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-50.webp' },
-    { name: 'Dricpod 100', comp: 'Cefpodoxime Proxetil Oral Suspension (5.5 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-100.webp' },
     { name: 'Clav Dric', comp: 'Amoxycillin 200 mg + Potassium Clavulanate 28.5 mg (Oral Suspension)', cat: 'Antibiotic (Pediatric)', form: 'Dry Syrup', ico: '&#128138;', img: 'clav-dric.webp' },
     { name: 'Nasodric', comp: 'Saline nasal formulation', cat: 'Respiratory', form: 'Nasal Drops', ico: '&#128167;', img: 'nasodric.webp' },
     { name: 'Xylodric', comp: 'Xylometazoline nasal drops', cat: 'Cough & Cold', form: 'Nasal Drops', ico: '&#128560;', img: 'xylodric.webp' },

@@ -116,19 +116,6 @@
 
 ---
 
-## 10. DRICPOD 50 / DRICPOD 100 — Trusted Pediatric Antibiotic
-**Form:** Oral Suspension (Dry Syrup for Reconstitution)
-**Composition:** Cefpodoxime Proxetil Oral Suspension
-- Dricpod 50: 11 mg/30 ml
-- Dricpod 100: 5.5 mg/30 ml
-**Category:** Broad-Spectrum Antibiotic (Pediatric)
-**Key Benefits:**
-- Effective against both Gram-positive & Gram-negative bacteria
-- Highly effective against common pediatric pathogens
-- High success rate in treating pediatric respiratory & urinary tract infections
-
----
-
 ## 11. CLAV DRIC (DRY SYRUP) — Effective Pediatric Antibiotic
 **Form:** Dry Syrup | **Pack:** 30 ml
 **Composition:** Amoxycillin 200 mg + Potassium Clavulanate 28.5 mg (Oral Suspension)
