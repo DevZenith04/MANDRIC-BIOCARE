@@ -5022,3 +5022,87 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .home-v2-marquee-track { animation: none !important; }
 }
+
+
+/* Reference-style marquee: independent items on a continuous straight ticker. */
+.home-v2-marquee {
+  position: relative;
+  overflow: hidden;
+  min-height: 58px;
+  padding: 0;
+  border: 0;
+  background: var(--navy, #07192c);
+  color: #fff;
+  white-space: nowrap;
+}
+.home-v2-marquee::before {
+  display: none;
+}
+.home-v2-marquee::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, #07192c 0%, rgba(7,25,44,0) 12%, rgba(7,25,44,0) 88%, #07192c 100%);
+}
+.home-v2-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: max-content;
+  height: 58px;
+  gap: 0;
+  animation: marqueeReferenceLoop 18s linear infinite !important;
+  will-change: transform;
+}
+.home-v2-marquee-track .marquee-set {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0;
+  min-width: max-content;
+  padding: 0 1.25rem;
+}
+.home-v2-marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  color: #f8fbff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: clamp(.72rem, 1vw, .9rem);
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.home-v2-marquee-track i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0 1.7rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--orange, #e8450a);
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 1;
+}
+@keyframes marqueeReferenceLoop {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (max-width: 560px) {
+  .home-v2-marquee,
+  .home-v2-marquee-track { min-height: 52px; height: 52px; }
+  .home-v2-marquee-track { animation-duration: 13s !important; }
+  .home-v2-marquee-track .marquee-set { padding: 0 .85rem; }
+  .home-v2-marquee-track span { font-size: .66rem; letter-spacing: .12em; }
+  .home-v2-marquee-track i { margin: 0 1.05rem; font-size: .82rem; }
+  .home-v2-marquee::after { background: linear-gradient(90deg, #07192c 0%, rgba(7,25,44,0) 9%, rgba(7,25,44,0) 91%, #07192c 100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-v2-marquee-track { animation: none !important; }
+}
