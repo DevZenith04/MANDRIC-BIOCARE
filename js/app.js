@@ -217,6 +217,24 @@ function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText)
     + '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; WhatsApp the team <span>↗</span></a></div>';
 }
 var modalLastFocus = null;
+var modalScrollY = 0;
+
+function lockPageScroll() {
+  if (document.body.classList.contains('modal-open')) return;
+  modalScrollY = window.scrollY || window.pageYOffset || 0;
+  document.documentElement.classList.add('modal-open');
+  document.body.classList.add('modal-open');
+  document.body.style.top = '-' + modalScrollY + 'px';
+}
+
+function unlockPageScroll() {
+  if (!document.body.classList.contains('modal-open')) return;
+  document.documentElement.classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  window.scrollTo(0, modalScrollY);
+  modalScrollY = 0;
+}
 
 function openModal(product, comp, cat, form, ico, img) {
   var isProduct = product && product !== 'General Enquiry' && product !== 'Partnership Enquiry';
@@ -252,8 +270,9 @@ function openModal(product, comp, cat, form, ico, img) {
     document.getElementById('eq-msg').value = '';
   }
 
+  lockPageScroll();
+  overlay.setAttribute('aria-hidden', 'false');
   overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
   window.setTimeout(function () {
     var closeButton = overlay.querySelector('.modal-close');
     if (closeButton) closeButton.focus();
@@ -262,8 +281,10 @@ function openModal(product, comp, cat, form, ico, img) {
 
 function closeModal() {
   var overlay = document.getElementById('enquiryModal');
+  if (!overlay) return;
   overlay.classList.remove('open');
-  document.body.style.overflow = '';
+  overlay.setAttribute('aria-hidden', 'true');
+  unlockPageScroll();
   if (modalLastFocus && typeof modalLastFocus.focus === 'function') {
     window.setTimeout(function () { modalLastFocus.focus(); }, 40);
   }
@@ -367,12 +388,37 @@ function submitContactForm() {
 // Safe modal overlay click-to-close (guard prevents crash if modal missing)
 var _modal = document.getElementById('enquiryModal');
 if (_modal) {
+  _modal.setAttribute('aria-hidden', 'true');
   _modal.addEventListener('click', function (e) {
     if (e.target === this) closeModal();
   });
 }
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && document.getElementById('enquiryModal')) closeModal();
+  var overlay = document.getElementById('enquiryModal');
+  if (!overlay || !overlay.classList.contains('open')) return;
+  if (e.key === 'Escape') {
+    closeModal();
+    return;
+  }
+  if (e.key !== 'Tab') return;
+  var dialog = overlay.querySelector('[role="dialog"] .modal-v4') || overlay.querySelector('.modal-v4') || overlay.querySelector('.modal');
+  if (!dialog) return;
+  var focusable = Array.prototype.slice.call(dialog.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter(function (el) {
+    return !el.disabled && el.offsetParent !== null;
+  });
+  if (!focusable.length) {
+    e.preventDefault();
+    return;
+  }
+  var first = focusable[0];
+  var last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
 });
 
 // ===== HERO SLIDER =====

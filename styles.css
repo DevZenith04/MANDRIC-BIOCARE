@@ -5106,3 +5106,153 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .home-v2-marquee-track { animation: none !important; }
 }
+
+
+/* Partnership CTA contrast and mobile interaction pass */
+.enquiry-cta {
+  isolation: isolate;
+  background: #0d4c9e;
+}
+.enquiry-cta-bg,
+.enquiry-cta-overlay {
+  pointer-events: none;
+}
+.enquiry-cta-bg {
+  background-attachment: scroll;
+}
+.btn-white,
+.btn-white-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  line-height: 1.2;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-white {
+  color: #0d4c9e;
+  background: #fff;
+  border: 1px solid #fff;
+}
+.btn-white:hover,
+.btn-white:focus-visible {
+  color: #082955;
+  background: #ffe9df;
+  border-color: #ffe9df;
+}
+.btn-white-outline {
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, .82);
+  background: rgba(255, 255, 255, .04);
+}
+.btn-white-outline:hover,
+.btn-white-outline:focus-visible {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, .16);
+}
+
+/* Keep the document fixed while the modal owns all touch scrolling. */
+html.modal-open {
+  overflow: hidden;
+}
+body.modal-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+@media (max-width: 780px) {
+  .enquiry-cta-bg {
+    background-attachment: scroll;
+  }
+  .enquiry-cta-btns {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+  .modal-overlay.open {
+    align-items: flex-start;
+    justify-content: center;
+    animation: none;
+    opacity: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: max(12px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  }
+  .modal-v4,
+  .product-modal .modal-v4 {
+    width: min(100%, 620px);
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    max-height: none;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+  .modal-v4 .modal-split {
+    display: block;
+    min-height: 0;
+    max-height: none;
+  }
+  .modal-v4 .modal-showcase {
+    min-height: 0;
+    padding: 20px 18px 18px;
+  }
+  .modal-v4 .modal-showcase-art {
+    min-height: 150px;
+  }
+  .modal-v4 .modal-showcase-image {
+    width: 170px;
+    height: 170px;
+    border-width: 7px;
+  }
+  .modal-v4 .modal-showcase-bottom h3 {
+    max-width: 100%;
+    font-size: clamp(2rem, 10vw, 2.6rem);
+    line-height: .96;
+  }
+  .modal-v4 .modal-showcase-bottom p {
+    max-width: 100%;
+  }
+  .modal-v4 .showcase-signature {
+    margin-top: 14px;
+  }
+  .modal-v4 .modal-panel {
+    max-height: none;
+    overflow: visible;
+    padding: 24px 18px 22px;
+    scrollbar-gutter: auto;
+  }
+  .modal-v4 .modal-panel-head {
+    padding-right: 30px;
+  }
+  .modal-v4 .modal-panel-head h2 {
+    font-size: clamp(2rem, 9vw, 2.55rem);
+  }
+  .modal-v4 #enquiryForm .form-row {
+    grid-template-columns: 1fr;
+  }
+  .modal-v4 #enquiryForm input,
+  .modal-v4 #enquiryForm select,
+  .modal-v4 #enquiryForm textarea {
+    min-height: 46px;
+  }
+  .modal-v4 #enquiryForm textarea {
+    min-height: 108px;
+  }
+  .modal-v4 .modal-close {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enquiry-cta-bg {
+    background-attachment: scroll;
+  }
+}
