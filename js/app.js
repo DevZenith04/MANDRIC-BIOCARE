@@ -1,53 +1,27 @@
 // ===== LOGO (src already set in HTML — no override needed) =====
 
-// ===== HOMEPAGE VIDEO INTRO =====
+// ===== HOMEPAGE HTML INTRO =====
 (function () {
   var intro = document.getElementById('siteIntro');
-  var video = document.getElementById('siteIntroVideo');
-  if (!intro || !video) return;
+  if (!intro) return;
 
   var finished = false;
-  var fallbackTimer = null;
+  var timer = null;
 
   function finishIntro() {
     if (finished) return;
     finished = true;
-    if (fallbackTimer) clearTimeout(fallbackTimer);
+    if (timer) clearTimeout(timer);
     intro.classList.add('closing');
     document.body.classList.remove('intro-playing');
     document.body.style.overflow = '';
     setTimeout(function () {
       if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
       document.body.style.visibility = '';
-    }, 450);
+    }, 580);
   }
 
-  video.addEventListener('ended', finishIntro);
-  video.addEventListener('error', finishIntro);
-  video.addEventListener('timeupdate', function () {
-    if (video.duration && video.currentTime >= video.duration - 0.08) {
-      finishIntro();
-    }
-  });
-
-  video.loop = false;
-  video.defaultPlaybackRate = 2.5;
-  video.playbackRate = 2.5;
-
-  var autoplayPromise = video.play();
-  if (autoplayPromise && typeof autoplayPromise.catch === 'function') {
-    autoplayPromise.catch(finishIntro);
-  }
-
-  video.addEventListener('loadedmetadata', function () {
-    var introDuration = video.duration && isFinite(video.duration) ? video.duration : 10;
-    var introMs = Math.max(2500, Math.ceil((introDuration / 2.5) * 1000) + 400);
-    if (fallbackTimer) clearTimeout(fallbackTimer);
-    fallbackTimer = setTimeout(finishIntro, introMs);
-  });
-
-  fallbackTimer = setTimeout(finishIntro, 12000);
-  // Skip button, overlay click and ESC to finish intro immediately
+  timer = setTimeout(finishIntro, 3200);
   var skipBtn = document.getElementById('skipIntro');
   if (skipBtn) skipBtn.addEventListener('click', finishIntro);
   intro.addEventListener('click', function (e) {
