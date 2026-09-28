@@ -481,7 +481,7 @@ var products = {
     { name: 'Xylodric', comp: 'Xylometazoline nasal drops', cat: 'Cough & Cold', form: 'Nasal Drops', ico: '&#128560;', img: 'xylodric.webp' },
     // ── MANDRIC BIOCARE GENERAL RANGE ──
     { name: 'Chymodric Forte', comp: 'Trypsin 96 mg + Bromelain 180 mg + Rutoside 200 mg', cat: 'Enzyme / Anti-inflammatory', form: 'Tablet', ico: '&#129657;', img: 'chymodric-forte.webp' },
-    { name: 'Calcidric Plus', comp: 'Calcium, Calcitriol, Vitamin K2-7, Methylcobalamin, Magnesium, Boron & Zinc Softgel Capsules', cat: 'Bone Health', form: 'Softgel Capsule', ico: '&#129460;', img: 'calcidric-plus.webp' },
+    { name: 'Calcidric Plus', comp: 'Calcium Carbonate I.P. 250 mg (equivalent to elemental Calcium); Calcitriol I.P. 0.25 mcg; Vitamin K2-7 45 mcg; Methylcobalamin 750 mcg; Magnesium Oxide 50 mg (equivalent to elemental Magnesium); Sodium Metaborate 1.5 mg (equivalent to elemental Boron); Zinc Oxide 7.5 mg (equivalent to elemental Zinc)', cat: 'Bone Health', form: 'Softgel Capsule', ico: '&#129460;', img: 'calcidric-plus.webp' },
     { name: 'Nutridric Capsules', comp: 'Natural Extracts, Amino Acids, Nutrients, Omega-3 Fatty Acids, Vitamins & Minerals', cat: 'Nutraceutical', form: 'Softgel Capsule', ico: '&#11088;', img: 'nutridric-cap.webp' },
     { name: 'Nutridric-SF', comp: 'Protein Powder with DHA, Multivitamins & Multiminerals (Sugar Free)', cat: 'Nutraceutical', form: 'Powder', ico: '&#11088;', img: 'nutridric-sf.webp' },
     { name: 'Rabidric 40 DSR', comp: 'Rabeprazole Sodium 40 mg + Domperidone 10 mg (IR) 30 mg', cat: 'Antacid / Proton Pump Inhibitor', form: 'Capsule', ico: '&#129531;', img: 'rabidric-40-dsr.webp' },
@@ -533,7 +533,7 @@ var products = {
   ortho: [
     // ── MANDRIC BIOCARE BRANDED ORTHO RANGE ──
     { name: 'Chymodric Forte', comp: 'Trypsin 96 mg + Bromelain 180 mg + Rutoside 200 mg', cat: 'Enzyme / Anti-inflammatory', form: 'Tablet', ico: '&#129657;', img: 'chymodric-forte.webp' },
-    { name: 'Calcidric Plus', comp: 'Calcium 500 mg + Vitamin D3 1000 IU + Magnesium 50 mg', cat: 'Bone Health', form: 'Tablet', ico: '&#129460;', img: 'calcidric-plus.webp' },
+    { name: 'Calcidric Plus', comp: 'Calcium Carbonate I.P. 250 mg (equivalent to elemental Calcium); Calcitriol I.P. 0.25 mcg; Vitamin K2-7 45 mcg; Methylcobalamin 750 mcg; Magnesium Oxide 50 mg (equivalent to elemental Magnesium); Sodium Metaborate 1.5 mg (equivalent to elemental Boron); Zinc Oxide 7.5 mg (equivalent to elemental Zinc)', cat: 'Bone Health', form: 'Softgel Capsule', ico: '&#129460;', img: 'calcidric-plus.webp' },
     { name: 'Nutridric Capsules', comp: 'Natural Extracts, Amino Acids, Nutrients, Omega-3 Fatty Acids, Vitamins & Minerals', cat: 'Nutraceutical', form: 'Softgel Capsule', ico: '&#11088;', img: 'nutridric-cap.webp' },
     { name: 'Nutridric Syrup', comp: 'Multivitamin, Multimineral, B-Complex & Antioxidant Syrup', cat: 'Nutritional Supplement', form: 'Syrup', ico: '&#11088;', img: 'nutridric-syp.webp' },
     { name: 'Nutridric-SF', comp: 'Protein Powder with DHA, Multivitamins & Multiminerals (Sugar Free)', cat: 'Nutraceutical', form: 'Powder', ico: '&#11088;', img: 'nutridric-sf.webp' },
@@ -722,9 +722,9 @@ function openFeaturedProduct(key) {
     },
     calcidric: {
       name: 'Calcidric Plus',
-      comp: 'Calcium 500 mg + Vitamin D3 1000 IU + Magnesium 50 mg',
+      comp: 'Calcium Carbonate I.P. 250 mg (equivalent to elemental Calcium); Calcitriol I.P. 0.25 mcg; Vitamin K2-7 45 mcg; Methylcobalamin 750 mcg; Magnesium Oxide 50 mg (equivalent to elemental Magnesium); Sodium Metaborate 1.5 mg (equivalent to elemental Boron); Zinc Oxide 7.5 mg (equivalent to elemental Zinc)',
       cat: 'Bone Health',
-      form: 'Tablet',
+      form: 'Softgel Capsule',
       ico: '&#129460;',
       img: 'calcidric-plus.webp'
     }
